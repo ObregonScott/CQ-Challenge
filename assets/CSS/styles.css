@@ -1,0 +1,15 @@
+/*Styles START*/
+/*General styles*/
+*{box-sizing: border-box;
+}
+
+body { font-family: 'Gill Sans',
+    'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
+
+/*Header START*/
+
+    #header {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+    }
