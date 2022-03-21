@@ -1,15 +1,142 @@
-/*Styles START*/
-/*General styles*/
-*{box-sizing: border-box;
+* {
+    box-sizing: border-box;
 }
 
-body { font-family: 'Gill Sans',
-    'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
+body{
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-/*Header START*/
+header  {
+    width: 100%;
+}
 
-    #header {
-        display: flex;
-        justify-content: space-between;
-        padding: 20px;
-    }
+#start-screen{
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 350px;
+    padding-top: 50px;
+}
+.start-par{
+    font-size: 15px;
+    text-align: center;
+    color: black;
+    padding: 50px;
+}
+.startbutton{
+    margin: auto;
+}
+
+button{
+    background-color: purple;
+    color: white;
+}
+
+.btn-grid{
+    display: grid;
+    padding: 10px;
+    gap: 10px;
+}
+.btn{
+    background-color: white;
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.btn:hover{
+    border-color: cornflowerblue;
+}
+.btn:active{
+    border-color: cornflowerblue;
+}
+
+.hide{
+    display: none;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#question{
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-top: 100px;
+}
+
+.timer{
+    right: 0;
+}
+#done-screen{
+    text-align: center;
+    padding-right: 700px;
+    font-size: 50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+input {
+    height: 50px;
+    width: 100%;
+    padding: 6px;
+    margin-top: 10px;
+    font-size: 2.4em;
+    border: none;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    background-color: white;
+  }
+  
+  li {
+    height: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: purple;
+    color: white;
+    font-size: 1.5em;
+    line-height: 1.5;
+  }
+  
+  li:before {
+    content: "\200B";
+    position: absolute;
+  }
+  
+  li::after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  
+  li button {
+    float: right;
+    border: none;
+    height: 40px;
+    cursor: pointer;
+    background-color: #ff9500;
+    color: white;
+    font-size: 1em;
+  }
+  
+  li button:hover {
+    background-color: #febc5d;
+  }
+  
+  .initials {
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-left: auto;
+  }
