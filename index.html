@@ -16,29 +16,30 @@
 <body>
 
         <!-- Header:Highscores and Timer -->
-    <header class="container" id ="header-box">
+    <header class="header-box" id ="header-box">
         <div class="row" id ="header-row">
           <div class="col text-left ">
             <a href="./assets/JS/highscore.js"> View Saved Scores </a>
           </div>
-          <div class="col text-center"><h1>
-              Coding Quiz Challenge!
-          </h1>
+          <div class="col text-center">
+            <div class="title" id="start-screen">
+                <h1>Coding Quiz Challenge</h1>
+                <p class="start-par">Try to answer the folling code-related questions within the time limit. <br>
+                Keep in mind that incorrect answers will penalize your score/time <br>
+                by ten seconds!</p>
+                <button id="start-button">
+                    <h1>Start Quiz</h1>
+                </button>
+            </div>
           </div>
-        <div class="timer">Time:<span id="current-time">0</span></div>
-        <div class="title" id="start-screen">
-            <h1>Code Quiz</h1>
-            <p class="start-par">Click the start button to begin the Code quiz. You will have 30 seconds to complete the quiz. If you get a question wrong, you will have 10 seconds deducted. At the end of the quiz, please enter your initials so your score may be saved on the score board.</p>
-            <button id="start-button">
-                <h1>Start!</h1>
-            </button>
-        </div>
+        <div class="timer col text-right">Time:<span id="current-time">0</span></div>
+
           
         </div>
     </header>
     <!--BODY START-->
         <!--Quiz Container-->
-        <div class="container">
+        <container class="container">
 
             <div id ="question-container" class="hide">
                 <div id = "question">Question</div>
@@ -46,7 +47,7 @@
                 </div>
             </div>
             
-        </div>
+        </container>
         <div class="row">
             <div class="column">
                 <div id="done-screen" class="hide">
@@ -190,7 +191,7 @@
     
         var initials = [""];
     
-    //Sets up the page to include only the done screen and initials elements
+    // Function for initials
         function renderInitials() {
         questionContainerEl.setAttribute("class","hide");
         doneScreen.removeAttribute("class");
@@ -211,18 +212,18 @@
         restart.removeAttribute("class");
     }
     
-    // When form is submitted...
+    // When initials are submitted
         initialForm.addEventListener("submit", function(event) {
         event.preventDefault();
     
         var initialText = initialInput.value.trim();
     
-      // Return from function early if submitted initialText is blank
+      // IF initial submit is blank
         if (initialText === "") {
         return;
       }
     
-      // Add new initialText to todos array, clear the input
+      // Add initials to array
         initials.push(initialText);
         initialInput.value = "";
         

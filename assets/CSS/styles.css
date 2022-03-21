@@ -3,7 +3,7 @@
 }
 
 body{
-    background-color: white;
+    background-color: whitesmoke;
     padding: 0;
     margin: 0;
     display: flex;
@@ -13,11 +13,23 @@ body{
 
 header  {
     width: 100%;
+
+}
+
+.container {
+    background-color: whitesmoke;
+    padding: 20 10 20 10;
+    margin: 0;
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+}
+
 }
 
 #start-screen{
     font-size: 30px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: black;
     justify-content: center;
     align-items: center;
@@ -51,10 +63,10 @@ button{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .btn:hover{
-    border-color: cornflowerblue;
+    border-color: rgb(121, 100, 237);
 }
 .btn:active{
-    border-color: cornflowerblue;
+    border-color: rgb(121, 100, 237);
 }
 
 .hide{
@@ -125,13 +137,13 @@ input {
     border: none;
     height: 40px;
     cursor: pointer;
-    background-color: #ff9500;
+    background-color: rgb(211, 8, 184);
     color: white;
     font-size: 1em;
   }
   
   li button:hover {
-    background-color: #febc5d;
+    background-color: rgb(211, 8, 184);
   }
   
   .initials {
