@@ -4,9 +4,10 @@
 
 body{
     background-color: whitesmoke;
-    padding: 0;
+    padding: 20px;
     margin: 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
@@ -20,11 +21,9 @@ header  {
     background-color: whitesmoke;
     padding: 20 10 20 10;
     margin: 0;
-    display: flexbox;
+    display: flex;
     justify-content: center;
     align-items: center;
-}
-
 }
 
 #start-screen{
