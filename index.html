@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -9,22 +10,24 @@
     <!-- Link to my CSS file -->
     <link rel="stylesheet" href="./assets/CSS/styles.css">
     <!-- Link to Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Coding Quiz Challenge</title>
 
 </head>
+
 <body>
 
-        <!-- Header:Highscores and Timer -->
-    <header class="header-box" id ="header-box">
-        <div class="row" id ="header-row">
-          <div class="col text-left ">
-            <a href="./assets/JS/highscore.js"> View Saved Scores </a>
-          </div>
-          
+    <!-- Header:Highscores and Timer -->
+    <header class="header-box" id="header-box">
+        <div class="row" id="header-row">
+            <div class="col text-left ">
+                <a href="./assets/JS/highscore.js"> View Saved Scores </a>
+            </div>
+
             <div class="timer col text-right">Time:<span id="current-time">0</span></div>
 
-          
+
         </div>
     </header>
 
@@ -32,52 +35,52 @@
         <div class="title" id="start-screen">
             <h1>Coding Quiz Challenge</h1>
             <p class="start-par">Try to answer the folling code-related questions within the time limit. <br>
-            Keep in mind that incorrect answers will penalize your score/time <br>
-            by ten seconds!</p>
+                Keep in mind that incorrect answers will penalize your score/time <br>
+                by ten seconds!</p>
             <button id="start-button">
                 <h1>Start Quiz</h1>
             </button>
         </div>
-      </div>
+    </div>
     <!--BODY START-->
-        <!--Quiz Container-->
-        <container class="container">
+    <!--Quiz Container-->
+    <container class="container">
 
-            <div id ="question-container" class="hide">
-                <div id = "question">Question</div>
-                <div id = "answer-btns" class="btn-grid">
-                </div>
-            </div>
-            
-        </container>
-        <div class="row">
-            <div class="column">
-                <div id="done-screen" class="hide">
-                    <div class="score-board">
-                        <h1>Score=</h1><span id="score"></span></div>
-                </div>
-            </div>
-            <div class="column">
-                <div id="initials" class="hide">
-                    <form id="initial-form" method="POST">
-                      <label for="initial-text">Write Your Initials:</label>
-                      <input type="text" placeholder="Type Initials Here" name="initial-text" id="initial-text" />
-                    </form>
-                    <p>Score-board: <span id="initial-count">0</span></p>
-                    <ul id="initial-list"></ul>
-                  </div>
-            </div>
-            <div class="column">
-                <div class="hide" id="restart">
-                    <button id="restart-button">
-                        <h1>Retry Quiz!</h1>
-                    </button>
-                </div>
+        <div id="question-container" class="hide">
+            <div id="question">Question</div>
+            <div id="answer-btns" class="btn-grid">
             </div>
         </div>
 
-        <!-- This is where the JS magic happens -->
- <script type="text/javascript">
+    </container>
+    <div>
+
+        <div id="done-screen" class="hide">
+            <div class="score-board">
+                <h1>Score=</h1><span id="score"></span>
+            </div>
+        </div>
+
+        <div id="initials" class="hide">
+            <form id="initial-form" method="POST">
+                <label for="initial-text">Write Your Initials:</label>
+                <input type="text" placeholder="Type Initials Here" name="initial-text" id="initial-text" />
+            </form>
+            <p>Score-board: <span id="initial-count">0</span></p>
+            <ul id="initial-list"></ul>
+        </div>
+
+
+        <div class="hide" id="restart">
+            <button id="restart-button">
+                <h1>Retry Quiz!</h1>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- This is where the JS magic happens -->
+    <script type="text/javascript">
         var startButton = document.getElementById("start-button");
         var questionContainerEl = document.getElementById("question-container");
         var questionEl = document.getElementById("question");
@@ -89,168 +92,170 @@
         var initialsEl = document.getElementById("initials");
         var restart = document.getElementById("restart");
         var restartButton = document.getElementById("restart-button");
-        
-        
-    
+
+
+
         startButton.addEventListener("click", startGame);
-        
-        var time=75;
+        var timerInterval;
+        var time = 75;
         var index = 0;
         var questions = [
             {
-                questionTitle:"Commonly used data types DO Not include:",
-                choices: ["1. Booleans","2. Strings","3. Alerts","4. Numbers"],
+                questionTitle: "Commonly used data types DO Not include:",
+                choices: ["1. Booleans", "2. Strings", "3. Alerts", "4. Numbers"],
                 correctAnswer: "Alerts"
             },
             {
-                questionTitle:"The condition in an if/else statement is enclosed within __",
-                choices: ["1. Quotes","2. Curly Brackets","3. Parentheses","4. Square Brackets"],
+                questionTitle: "The condition in an if/else statement is enclosed within __",
+                choices: ["1. Quotes", "2. Curly Brackets", "3. Parentheses", "4. Square Brackets"],
                 correctAnswer: "Parentheses"
             },
             {
-                questionTitle:"Arrays in javascript can be used to store__",
-                choices: ["1. Numbers and strings","2. Other arrays","3. Booleans","All of the Above"],
+                questionTitle: "Arrays in javascript can be used to store__",
+                choices: ["1. Numbers and strings", "2. Other arrays", "3. Booleans", "All of the Above"],
                 correctAnswer: "All of the Above"
             },
             {
-                questionTitle:"String values must be enclosed within ___ when being assigned to variables.",
-                choices: ["1. Commas","2. Curly Brackets","3. Quotes","4. Parentheses"],
+                questionTitle: "String values must be enclosed within ___ when being assigned to variables.",
+                choices: ["1. Commas", "2. Curly Brackets", "3. Quotes", "4. Parentheses"],
                 correctAnswer: "Quotes"
             },
             {
-                questionTitle:"A very useful tool used during the development and debugging for printing content to the debugger is:",
+                questionTitle: "A very useful tool used during the development and debugging for printing content to the debugger is:",
                 choices: ["1. JavaScript", "2. Terminal/Bash", "3. For Loops", "4. console.log"],
                 correctAnswer: "console.log"
             },
         ]
-        
-        function timer(){
+
+        function timer() {
             time--
-            currentTime.textContent=time;
-            if (time <= 0){
-                time=0;
+            currentTime.textContent = time;
+            if (time <= 0) {
+                clearInterval(timerInterval)
                 //Call end quiz function here
                 endQuiz()
             }
         }
-    
-        function startGame(){
-        startScreen.setAttribute("class","hide");
-        questionContainerEl.removeAttribute("class");
-        //SetInterval starts the timer and changes the time every 1 second (1000ms)
-        setInterval(timer,1000);
-        currentTime.textContent=time;
-        getQuestion();
-    };
-        function getQuestion(){
+
+        function startGame() {
+            startScreen.setAttribute("class", "hide");
+            questionContainerEl.removeAttribute("class");
+            //SetInterval starts the timer and changes the time every 1 second (1000ms)
+            timerInterval=setInterval(timer, 1000);
+            currentTime.textContent = time;
+            getQuestion();
+        };
+        function getQuestion() {
             var current = questions[index];
-            questionEl.textContent=current.questionTitle;
-            answerButtonEl.innerHTML="";
-            current.choices.forEach(function(choice,i){
-                console.log(choice,i)
+            questionEl.textContent = current.questionTitle;
+            answerButtonEl.innerHTML = "";
+            current.choices.forEach(function (choice, i) {
+                console.log(choice, i)
                 var button = document.createElement("button");
-                button.setAttribute("value",choice)
-                button.textContent=choice;
+                button.setAttribute("value", choice)
+                button.textContent = choice;
                 // Attach onclick for each choice here
-                button.onclick=selectAnswer
+                button.onclick = selectAnswer
                 answerButtonEl.append(button);
             });
         }
-    
-        function selectAnswer(){
-       if (this.value !== questions[index].correctAnswer){
-           time -=10
-    
-           //Stop the time at zero
-           if (time < 0){
-               time =0;
-           }
-           currentTime.textContent=time;
-       }
-       index++
-       if (index === questions.length){
-           //Call end quiz function here 
-           endQuiz();
-       }
-       else {
-           getQuestion();
-       }
-    }
-    //Shows the score and asks to input initials
-        function endQuiz(){
-                questionContainerEl.setAttribute("class","hide");
-                doneScreen.removeAttribute("class");
-                doneScreen.textContent="All done!";
-                doneScreen.append(score);
-                score.textContent="Score= "+ time;
-                renderInitials();
+
+        function selectAnswer() {
+            if (this.value !== questions[index].correctAnswer) {
+                time -= 10
+
+                //Stop the time at zero
+                if (time < 0) {
+                    time = 0;
+                }
+                currentTime.textContent = time;
+            }
+            index++
+            if (index === questions.length) {
+                //Call end quiz function here
+                clearInterval(timerInterval)
+                endQuiz();
+            }
+            else {
+                getQuestion();
+            }
         }
-    
+        //Shows the score and asks to input initials
+        function endQuiz() {
+            questionContainerEl.setAttribute("class", "hide");
+            doneScreen.removeAttribute("class");
+            doneScreen.textContent = "All done!  ";
+            doneScreen.append(score);
+            score.textContent = " Score= " + time;
+            renderInitials();
+        }
+
         var initialInput = document.querySelector("#initial-text");
         var initialForm = document.querySelector("#initial-form");
         var initialList = document.querySelector("#initial-list");
         var initialCountSpan = document.querySelector("#initial-count");
-    
-        var initials = [""];
-    
-    // Function for initials
-        function renderInitials() {
-        questionContainerEl.setAttribute("class","hide");
-        doneScreen.removeAttribute("class");
-        initialsEl.removeAttribute("class");
-      // Clear initialsList element and update initialsCountSpan
-        initialList.innerHTML = "";
-        initialCountSpan.textContent = initials.length;
-        doneScreen.append(initials);
-    
-      // Render a new li for each initials
-        for (var i = 0; i < initials.length; i++) {
-        var initial = initials[i];
-    
-        var li = document.createElement("li");
-        li.textContent = initial + time;
-        initialList.appendChild(li);
-      }
-        restart.removeAttribute("class");
-    }
-    
-    // When initials are submitted
-        initialForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-    
-        var initialText = initialInput.value.trim();
-    
-      // IF initial submit is blank
-        if (initialText === "") {
-        return;
-      }
-    
-      // Add initials to array
-        initials.push(initialText);
-        initialInput.value = "";
-        
-    
-    
-      // Re-render the list
-        renderInitials();
-    });
-    
-    restartButton.addEventListener("click", refreshPage);
-    
-    function refreshPage(){
-        window.location.reload();
-    } 
-    
-    
- </script>
-<!-- Body END -->
 
-<!-- Link to jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        var initials = [""];
+
+        // Function for initials
+        function renderInitials() {
+            questionContainerEl.setAttribute("class", "hide");
+            doneScreen.removeAttribute("class");
+            initialsEl.removeAttribute("class");
+            // Clear initialsList element and update initialsCountSpan
+            initialList.innerHTML = "";
+            initialCountSpan.textContent = initials.length;
+            doneScreen.append(initials);
+
+            // Render a new li for each initials
+            for (var i = 0; i < initials.length; i++) {
+                var initial = initials[i];
+
+                var li = document.createElement("li");
+                li.textContent = initial + time;
+                initialList.appendChild(li);
+            }
+            restart.removeAttribute("class");
+        }
+
+        // When initials are submitted
+        initialForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            var initialText = initialInput.value.trim();
+
+            // IF initial submit is blank
+            if (initialText === "") {
+                return;
+            }
+
+            // Add initials to array
+            initials.push(initialText);
+            initialInput.value = "";
+
+
+
+            // Re-render the list
+            renderInitials();
+        });
+
+        restartButton.addEventListener("click", refreshPage);
+
+        function refreshPage() {
+            window.location.reload();
+        }
+
+
+    </script>
+    <!-- Body END -->
+
+    <!-- Link to jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!--Footer-->
     <footer>
 
     </footer>
 
-    </body>
+</body>
+
 </html>
